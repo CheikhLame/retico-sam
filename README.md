@@ -48,10 +48,8 @@ sys.path.append(os.environ['VISION'])
 from retico_core.debug import DebugModule   
 from retico_vision.vision import WebcamModule  
 from retico_vision.vision import ExtractObjectsModule   
-from retico_sam.fastsam import SAMModule  
-## OR
-# from retico_sam.hfsam import SAMModule
-## OR
+# from retico_sam.fastsam import SAMModule  
+## OR for fastSAM
 # from retico_sam.fastsam import FastSAMModule
   
 path_var = *** REPLACE WITH PATH TO YOUR CHECKPOINT ***
@@ -60,6 +58,7 @@ path_var = *** REPLACE WITH PATH TO YOUR CHECKPOINT ***
 webcam = WebcamModule()  
 sam = SAMModule(model='h', path_to_chkpnt=path_var, use_bbox=True)  
 # sam = SAMModule(show=False, use_bbox=True)   # if hfsam
+# sam = FastSAMModule(model='h', path_to_chkpnt=path_var, use_bbox=True # if fastsam
 extractor = ExtractObjectsModule(num_obj_to_display=20)  
 debug = DebugModule()  
 
